@@ -1,0 +1,39 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}
+ Group Creation Request
+{% endblock title %}
+
+{% block content %}
+		<span class="login100-form-title p-b-41">
+			Create group
+		</span>
+		
+		
+  		
+	
+
+               
+		
+		<div class="form-group">
+                <form action="{% url 'lms:group_creation_request' %}" 
+                      method="post" novalidate>
+                    {% csrf_token %}
+
+					<div class="wrap-input100 validate-input" data-validate="">
+						{{ group_creation_form.student_email }}
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					
+					<div class="container-login100-form-btn m-t-32">
+						<button type="submit" class="login100-form-btn">
+							Send Request
+						</button>
+                    </div>
+                   
+		</form>
+		</div>
+
+{% endblock content %}

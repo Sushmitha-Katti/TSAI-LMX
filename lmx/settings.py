@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     # third party apps
     'social_django',
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
 
     # My apps
     'lms.apps.LmsConfig',
@@ -164,3 +166,29 @@ EMAIL_USE_TLS = True
 # SOCIAL AUTHS
 #SOCIAL_AUTH_GITHUB_KEY = env('SOCIAL_AUTH_GITHUB_KEY')
 #SOCIAL_AUTH_GITHUB_SECRET = env('SOCIAL_AUTH_GITHUB_SECRET')
+
+# EMAIL SETTINGS
+EMAIL_HOST_USER = 'sushum19@gmail.com'
+
+EMAIL_HOST_PASSWORD = '8553759254'
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+
+
+#CKEDITOR SETTINGS
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}
+
