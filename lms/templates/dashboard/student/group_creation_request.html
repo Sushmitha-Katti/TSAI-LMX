@@ -17,7 +17,7 @@
                
 		
 		<div class="form-group">
-                <form action="{% url 'lms:group_creation_request' %}" 
+                <form action="{% url 'lms:group_creation_request' pk %}" 
                       method="post" novalidate>
                     {% csrf_token %}
 

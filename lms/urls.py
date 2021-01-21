@@ -5,6 +5,8 @@ from django.urls import path
 
 from lms.views.course.course_views import (
     CourseListView,
+    GroupCreationRequestView,
+      MailToAdminView
 )
 
 from lms.views.dashboard.student.dashboard_views import (
@@ -12,13 +14,7 @@ from lms.views.dashboard.student.dashboard_views import (
     
 )
 
-from lms.views.dashboard.student.group_creation_request_view import (
-    GroupCreationRequestView,
-)
 
-from lms.views.dashboard.student.mail_to_admin_view import (
-   MailToAdminView
-)
 
 from lms.views.account.register_view import \
     (
@@ -87,26 +83,41 @@ urlpatterns = [
         name="dashboard_home"
     ),
 
-# ----------------------------------------------------
-    # Create group
-    path(
-        route = "student/dashboard/group_creation_request/",
-        view = GroupCreationRequestView.as_view(),
-        name = "group_creation_request"
+# # ----------------------------------------------------
+#     # Create group
+#     path(
+#         route = "student/dashboard/group_creation_request/",
+#         view = GroupCreationRequestView.as_view(),
+#         name = "group_creation_request"
 
+#     ),
+
+#     #Send Email to admin
+
+#     path(
+#         route = "student/dashboard/mail_to_admin/",
+#         view = MailToAdminView.as_view(),
+#         name = "mail_to_admin"
+
+#     ),
+
+
+#Actual one
+path(
+        route="course/<int:pk>/group_creation_request/",
+        view=GroupCreationRequestView.as_view(),
+        name="group_creation_request"
     ),
-
-    #Send Email to admin
-
     path(
-        route = "student/dashboard/mail_to_admin/",
-        view = MailToAdminView.as_view(),
-        name = "mail_to_admin"
-
+        route="course/<int:pk>/mail_to_admin",
+        view=MailToAdminView.as_view(),
+        name="mail_to_admin"
     ),
+    
+]
      
 
 
 
-]
+
 

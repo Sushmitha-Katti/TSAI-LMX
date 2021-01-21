@@ -17,7 +17,7 @@
                
 		
 		<div class="form-group">
-                <form action="{% url 'lms:mail_to_admin' %}" 
+                <form action="{% url 'lms:mail_to_admin' 2 %}" 
                       method="post" novalidate>
                   
                     {% csrf_token %}
