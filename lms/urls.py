@@ -6,7 +6,8 @@ from django.urls import path
 from lms.views.course.course_views import (
     CourseListView,
     GroupCreationRequestView,
-      MailToAdminView
+      MailToAdminView,
+      GroupCreationRequestSentView
 )
 
 from lms.views.dashboard.student.dashboard_views import (
@@ -113,6 +114,11 @@ path(
         view=MailToAdminView.as_view(),
         name="mail_to_admin"
     ),
+
+path(route='group_request/<int:ck>/<uidb64>/<token>/',
+         view=GroupCreationRequestSentView.as_view(),
+         name='group_request'
+         )
     
 ]
      

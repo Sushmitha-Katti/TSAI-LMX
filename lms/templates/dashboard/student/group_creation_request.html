@@ -19,7 +19,11 @@
 		<div class="form-group">
                 <form action="{% url 'lms:group_creation_request' pk %}" 
                       method="post" novalidate>
-                    {% csrf_token %}
+					{% csrf_token %}
+					<div class="wrap-input100 validate-input" data-validate="">
+						{{ group_creation_form.name }}
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="">
 						{{ group_creation_form.student_email }}
