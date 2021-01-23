@@ -1,0 +1,49 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}
+ Group Creation Request
+{% endblock title %}
+
+{% block content %}
+		<span class="login100-form-title p-b-41">
+			Email to admin
+		</span>
+		
+		
+  		
+	
+
+               
+		
+		<div class="form-group">
+                <form action="{% url 'lms:mail_to_admin' 2 %}" 
+                      method="post" novalidate>
+                  
+                    {% csrf_token %}
+                    <label>Subject </label>
+                    <div class="wrap-input100 validate-input" data-validate="">
+						{{mail_to_admin_form.subject }}
+						
+                    </div>
+					<div class="wrap-input100 validate-input" data-validate="">
+						{{mail_to_admin_form.body }}
+						
+                    </div>
+                    
+                    <div class="wrap-input100 validate-input" data-validate="">
+						{{mail_to_admin_form.staff_email }}
+						
+					</div>
+
+					
+					<div class="container-login100-form-btn m-t-32">
+						<button type="submit" class="login100-form-btn">
+							Send Mail
+						</button>
+                    </div>
+                   
+		</form>
+		</div>
+
+{% endblock content %}
